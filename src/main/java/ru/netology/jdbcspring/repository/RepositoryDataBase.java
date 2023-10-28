@@ -2,6 +2,7 @@ package ru.netology.jdbcspring.repository;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,13 +12,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@org.springframework.stereotype.Repository
-public class Repository {
+@Repository
+public class RepositoryDataBase {
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     private final String scriptFileName = "select_script.sql";
     private String script = read(scriptFileName);
 
-    public Repository(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+    public RepositoryDataBase(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 
